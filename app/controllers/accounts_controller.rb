@@ -1,2 +1,2 @@
-class AccountsController < JSONAPI::ResourceController
+class AccountsController < ApplicationController
 end

@@ -1,2 +1,2 @@
-class SessionsController < JSONAPI::ResourceController
+class SessionsController < ApplicationController
 end

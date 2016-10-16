@@ -1,2 +1,2 @@
-class PolishesController < JSONAPI::ResourceController
+class PolishesController < ApplicationController
 end

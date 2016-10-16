@@ -1,2 +1,2 @@
-class LinesController < JSONAPI::ResourceController
+class LinesController < ApplicationController
 end

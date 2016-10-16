@@ -1,2 +1,2 @@
-class BrandsController < JSONAPI::ResourceController
+class BrandsController < ApplicationController
 end
