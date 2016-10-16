@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   scope '/v1' do
     constraint(Lacqueristas::Mediatype::JSON.new(jsonapi: "1.1")) do
-      resources :authentications
       resources :sessions
       resources :lines
       resources :brands
