@@ -6,5 +6,7 @@ ENV DATABASE_HOST postgres
 WORKDIR $APPLICATION
 COPY Gemfile* $APPLICATION/
 
-RUN apk add --no-cache build-base postgresql-client postgresql postgresql-dev tzdata
+RUN apk add --no-cache build-base tzdata
+RUN apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/community postgresql-dev
+
 RUN bundle install
