@@ -34,6 +34,6 @@ module Lacqueristas
     end
 
     config.action_controller.include_all_helpers = false
-    config.active_record.schema_format = :sql
+    # config.active_record.schema_format = :sql
   end
 end
