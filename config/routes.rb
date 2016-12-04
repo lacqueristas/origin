@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     jsonapi_resources :brands
     jsonapi_resources :polishes
     jsonapi_resources :sessions
+    jsonapi_resources :resources
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

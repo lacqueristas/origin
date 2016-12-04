@@ -1,2 +1,2 @@
-class PolishResource < JSONAPI::Resource
+class PolishResource < ApplicationResource
 end

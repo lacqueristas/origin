@@ -3,12 +3,19 @@ class Session
 
   attr_accessor :email
   attr_accessor :password
+  attr_accessor :account
+
+  validates :account, presence: true
 
   def id
     SecureRandom.hex
   end
 
   def account
-    @account ||= Account.find_by(email: email).try(:authenticate, password)
+    @account ||= Account.authenticate(email: email, password: password)
+  end
+
+  def created_at
+    Time.zone.now
   end
 end

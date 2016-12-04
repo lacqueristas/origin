@@ -1,7 +1,15 @@
 class ApplicationController < JSONAPI::ResourceController
-  protected def current_session
-    if session.has_key?(:account_id)
-      @current_session ||= Account.new(session[:account_id])
+  private def current_session
+    if headers["rack.authentication"]
+      @current_session ||= Account.new(authentication["session"])
     end
+  end
+
+  private def ensure_authentication!
+    render status: :unauthorized unless current_session.present?
+  end
+
+  private def authentication
+    ENCRYPTOR.decrypt_and_verify(headers["rack.authentication"])
   end
 end

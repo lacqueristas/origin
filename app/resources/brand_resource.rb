@@ -1,2 +1,2 @@
-class BrandResource < JSONAPI::Resource
+class BrandResource < ApplicationResource
 end

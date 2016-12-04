@@ -6,6 +6,7 @@ gem 'puma', '3.6.0'
 gem 'bcrypt', '3.1.7'
 gem 'rack-cors', '0.4.0'
 gem 'jsonapi-resources', '0.8.1'
+gem 'rack-authentication_bearer', '1.0.0'
 
 group :development, :test do
   gem 'pry-rails', '0.3.4'

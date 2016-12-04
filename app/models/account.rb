@@ -8,8 +8,12 @@ class Account < ApplicationRecord
     record.errors.add(:password, :blank) unless record.password.present?
   end
 
+  def self.authenticate(email:, password:)
+    find_by(email: email).authenticate(password)
+  end
+
   def authenticate(unencrypted_password)
-    BCrypt::Password.new(encrypted_password).is_password?(unencrypted_password) && self
+    BCrypt::Password.new(encrypted_password).is_password?(Digest::SHA256.hexdigest(unencrypted_password)) && self
   end
 
   def password=(unencrypted_password)

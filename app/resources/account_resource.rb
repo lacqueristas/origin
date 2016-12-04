@@ -1,4 +1,4 @@
-class AccountResource < JSONAPI::Resource
+class AccountResource < ApplicationResource
   attribute :name
   attribute :email
   attribute :password

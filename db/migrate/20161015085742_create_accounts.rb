@@ -4,7 +4,7 @@ class CreateAccounts < ActiveRecord::Migration[5.0]
       table.text :name, null: false
       table.text :email, null: false, index: {unique: true}
       table.text :encrypted_password, null: false
-      table.json :metadata, null: false, default: {}
+      table.jsonb :metadata, null: false, default: {}
       table.timestamps null: false
     end
   end

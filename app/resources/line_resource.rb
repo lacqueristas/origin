@@ -1,2 +1,2 @@
-class LineResource < JSONAPI::Resource
+class LineResource < ApplicationResource
 end

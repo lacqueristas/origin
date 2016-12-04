@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20161015110435) do
     t.text     "name",                            null: false
     t.text     "email",                           null: false
     t.text     "encrypted_password",              null: false
-    t.json     "metadata",           default: {}, null: false
+    t.jsonb    "metadata",           default: {}, null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["email"], name: "index_accounts_on_email", unique: true, using: :btree
