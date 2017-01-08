@@ -1,12 +1,29 @@
 FROM ruby:2.3.0-alpine
 
-ENV APPLICATION /usr/src/origin
-ENV DATABASE_HOST postgres
+ENV \
+  APPLICATION=/usr/lib/origin \
+  DATABASE_HOST=postgres \
+  PORT=3000
 
 WORKDIR $APPLICATION
-COPY Gemfile* $APPLICATION/
 
-RUN apk add --no-cache build-base tzdata
-RUN apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/community postgresql-dev
+RUN \
+  apk add --no-cache build-base tzdata \
+  && \
+  apk add --no-cache --repository http://nl.alpinelinux.org/alpine/edge/community postgresql-dev
+
+COPY Gemfile $APPLICATION/
+COPY Gemfile.lock $APPLICATION/
 
 RUN bundle install
+
+COPY app/ $APPLICATION/app/
+COPY bin/ $APPLICATION/bin/
+COPY config/ $APPLICATION/config/
+COPY db/ $APPLICATION/db/
+COPY lib/ $APPLICATION/lib/
+COPY public/ $APPLICATION/public/
+COPY config.ru $APPLICATION/config.ru
+COPY Rakefile $APPLICATION/Rakefile
+
+CMD bin/rails server --port $PORT --bind '0.0.0.0'

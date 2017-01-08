@@ -8,13 +8,12 @@ class Resource
   attr_accessor :intent
   attr_accessor :method
   attr_accessor :href
-  attr_accessor :query
   attr_accessor :allowed
   attr_accessor :mediatype
   attr_accessor :description
 
   def self.all
-    JSON.parse(ERB.new(File.read(Rails.root.join("config", "resources.json"))).result).map(&method(:new))
+    ResourcePresenter.all.map(&:to_hash).map(&method(:new))
   end
 
   def id

@@ -4,7 +4,6 @@ class ResourceResource < ApplicationResource
   attribute :intent
   attribute :verb, key: "method"
   attribute :href
-  attribute :query
   attribute :allowed
   attribute :mediatype
   attribute :description
