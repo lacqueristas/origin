@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-heroku container:push web --app=lacqueristas-origin-staging
+eval "$(docker-machine env lacqueristas)" &&
+heroku container:push web --app="lacqueristas-origin-$1"
