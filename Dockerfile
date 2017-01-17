@@ -2,8 +2,7 @@ FROM ruby:2.3.0-alpine
 
 ENV \
   APPLICATION=/usr/lib/origin \
-  DATABASE_HOST=postgres \
-  PORT=3000
+  RAILS_ENV=production
 
 WORKDIR $APPLICATION
 
@@ -25,5 +24,9 @@ COPY lib/ $APPLICATION/lib/
 COPY public/ $APPLICATION/public/
 COPY config.ru $APPLICATION/config.ru
 COPY Rakefile $APPLICATION/Rakefile
+
+ENV \
+  DATABASE_HOST=postgres \
+  PORT=3000
 
 CMD bin/rails server --port $PORT --bind '0.0.0.0'
