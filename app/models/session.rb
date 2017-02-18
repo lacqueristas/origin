@@ -11,6 +11,10 @@ class Session
     SecureRandom.hex
   end
 
+  def account_id
+    account.id
+  end
+
   def account
     @account ||= Account.authenticate(email: email, password: password)
   end
