@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope '/v1' do
+  namespace :v1 do
     jsonapi_resources :accounts
     jsonapi_resources :lines
     jsonapi_resources :brands

@@ -1,2 +1,0 @@
-class PolishResource < ApplicationResource
-end

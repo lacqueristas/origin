@@ -1,2 +1,0 @@
-class BrandResource < ApplicationResource
-end

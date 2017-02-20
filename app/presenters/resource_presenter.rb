@@ -33,11 +33,11 @@ class ResourcePresenter
   end
 
   def version
-    route.path.source.match(/\/(.+?)\/.+?\//)[1]
+    route.defaults[:controller].split("/").first
   end
 
   def namespace
-    route.defaults[:controller]
+    route.defaults[:controller].split("/").last
   end
 
   def description
