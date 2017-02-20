@@ -54,7 +54,7 @@ JSONAPI.configure do |let|
   # Resource Linkage
   # Controls the serialization of resource linkage for non compound documents
   # NOTE: always_include_to_many_linkage_data is not currently implemented
-  # let.always_include_to_one_linkage_data = false
+  let.always_include_to_one_linkage_data = true
 
   # Relationship reflection invokes the related resource when updates
   # are made to a has_many relationship. By default relationship_reflection
