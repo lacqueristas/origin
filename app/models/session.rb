@@ -6,9 +6,10 @@ class Session
   attr_accessor :account
 
   validates :account, presence: true
+  validates :id, presence: true
 
   def id
-    SecureRandom.hex
+    ENCRYPTOR.encrypt_and_sign(account_id)
   end
 
   def account_id
