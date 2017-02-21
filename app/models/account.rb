@@ -9,7 +9,7 @@ class Account < ApplicationRecord
   end
 
   def self.authenticate(email:, password:)
-    find_by(email: email).authenticate(password)
+    find_by(email: email).try(:authenticate, password)
   end
 
   def authenticate(unencrypted_password)
