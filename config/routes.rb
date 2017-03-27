@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :v1 do
     jsonapi_resources :accounts
+    jsonapi_resources :projects
     jsonapi_resources :lines
     jsonapi_resources :brands
     jsonapi_resources :polishes

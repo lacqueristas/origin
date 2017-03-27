@@ -1,6 +1,7 @@
 module V1
   class SessionResource < ApplicationResource
     attribute :email
+    attribute :bearer
     attribute :password
     attribute :created_at
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015110435) do
+ActiveRecord::Schema.define(version: 20170221044805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,22 @@ ActiveRecord::Schema.define(version: 20161015110435) do
     t.index ["line_id"], name: "index_polishes_on_line_id", using: :btree
   end
 
+  create_table "projects", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.text     "name",                     null: false
+    t.text     "description", default: "", null: false
+    t.datetime "painted_at",               null: false
+    t.uuid     "account_id",               null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["account_id"], name: "index_projects_on_account_id", using: :btree
+    t.index ["created_at"], name: "index_projects_on_created_at", using: :btree
+    t.index ["name"], name: "index_projects_on_name", using: :btree
+    t.index ["painted_at"], name: "index_projects_on_painted_at", using: :btree
+    t.index ["updated_at"], name: "index_projects_on_updated_at", using: :btree
+  end
+
   add_foreign_key "lines", "brands"
   add_foreign_key "polishes", "brands"
   add_foreign_key "polishes", "lines"
+  add_foreign_key "projects", "accounts"
 end

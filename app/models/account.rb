@@ -1,4 +1,6 @@
 class Account < ApplicationRecord
+  has_many :projects
+
   attr_reader :password
 
   validates :name, presence: true

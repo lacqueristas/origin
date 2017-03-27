@@ -9,7 +9,8 @@ RUN apk add --no-cache build-base tzdata
 RUN apk add --no-cache --repository http://nl.alpinelinux.org/alpine/v3.5/main postgresql-dev
 RUN gem install bundler
 
-COPY Gemfile* $APPLICATION/
+COPY Gemfile $APPLICATION/
+COPY Gemfile.lock $APPLICATION/
 
 RUN bundle install --jobs 20 --retry 5
 

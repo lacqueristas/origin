@@ -2,6 +2,9 @@ module V1
   class ApplicationController < JSONAPI::ResourceController
     def self.has_authentication
       before_action :ensure_authentication!
+      rescue_from ActiveSupport::MessageVerifier::InvalidSignature do
+        head :unauthorized
+      end
       define_method :context do
         {
           current_account: current_account
@@ -11,7 +14,7 @@ module V1
 
     private def current_session
       if bearer_token.present?
-        @current_session ||= Session.new(authentication["id"])
+        @current_session ||= Session.new(bearer: bearer_token)
       end
     end
 
@@ -21,16 +24,12 @@ module V1
       end
     end
 
-    private def authentication
-      ENCRYPTOR.decrypt_and_verify(bearer_token)
-    end
-
     private def ensure_authentication!
-      render status: :unauthorized unless current_session.present?
+      head :unauthorized unless current_account.present?
     end
 
     private def bearer_token
-      headers["rack.authentication"]
+      request.env["rack.authentication"]
     end
   end
 end
