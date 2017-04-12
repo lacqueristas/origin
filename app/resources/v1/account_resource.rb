@@ -3,6 +3,8 @@ module V1
     attribute :name
     attribute :email
     attribute :password
+    attribute :created_at
+    attribute :updated_at
 
     def fetchable_fields
       super - [:password]
