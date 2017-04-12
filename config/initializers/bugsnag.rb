@@ -1,3 +1,5 @@
-Bugsnag.configure do |config|
-  config.api_key = ENV["BUGSNAG_API_PRIVATE"]
+if Rails.env.production?
+  Bugsnag.configure do |config|
+    config.api_key = ENV["BUGSNAG_API_PRIVATE"]
+  end
 end
