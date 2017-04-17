@@ -6,6 +6,8 @@ module V1
     attribute :created_at
     attribute :updated_at
 
+    has_many :photographs
+
     def fetchable_fields
       super - [:password]
     end
