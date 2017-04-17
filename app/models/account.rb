@@ -4,9 +4,11 @@ class Account < ApplicationRecord
 
   attr_reader :password
 
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true, format: /\A.+@.+\z/
-  validates :password, length: {in: 8..1024}
+  validates_presence_of :name
+  validates_presence_of :email
+  validates_uniqueness_of :email
+  validates_format_of :email, with: /\A.+@.+\z/
+  validates_length_of :password, in: 8..1024
   validate do |record|
     record.errors.add(:password, :blank) unless record.password.present?
   end
