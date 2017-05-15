@@ -1,5 +1,7 @@
 module V1
   class ResourceResource < ApplicationResource
+    immutable
+
     attribute :namespace
     attribute :version
     attribute :intent
