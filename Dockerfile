@@ -2,6 +2,7 @@ FROM ruby:2.4.0-alpine
 
 ENV APPLICATION /usr/lib/origin
 ENV RAILS_ENV production
+ENV PORT 3001
 
 WORKDIR $APPLICATION
 
@@ -23,4 +24,6 @@ COPY public/ $APPLICATION/public/
 COPY config.ru $APPLICATION/config.ru
 COPY Rakefile $APPLICATION/Rakefile
 
-CMD bin/rails server --port $PORT --bind '0.0.0.0'
+EXPOSE $PORT
+
+CMD ["bin/rails", "server", "--binding", "0.0.0.0"]
