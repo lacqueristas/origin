@@ -5,7 +5,7 @@ module V1
     attribute :namespace
     attribute :version
     attribute :intent
-    attribute :verb, key: "method"
+    attribute :method
     attribute :href
     attribute :allowed
     attribute :mediatype
@@ -15,7 +15,7 @@ module V1
       []
     end
 
-    def verb
+    def method
       @model.method
     end
   end
