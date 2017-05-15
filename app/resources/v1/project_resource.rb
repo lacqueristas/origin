@@ -4,7 +4,8 @@ module V1
     attribute :description
     attribute :painted_at
 
-    has_one :account
+    has_one :account, always_include_linkage_data: true
+    has_many :photographs, always_include_linkage_data: true
 
     limited_to :current_account, :projects
   end
