@@ -123,6 +123,8 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    secure_headers (3.6.4)
+      useragent
     slop (3.6.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
@@ -135,6 +137,7 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    useragent (0.16.8)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -154,6 +157,7 @@ DEPENDENCIES
   rack-cors (= 0.4.1)
   rails (= 5.1.0)
   rspec-rails (= 3.6.0)
+  secure_headers (= 3.6.4)
 
 BUNDLED WITH
    1.14.6

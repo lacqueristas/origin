@@ -10,6 +10,7 @@ gem "rack-authentication_bearer", "1.0.0"
 gem "pry-rails", "0.3.6"
 gem "pry-remote", "0.1.8"
 gem "bugsnag", "5.3.2"
+gem "secure_headers", "3.6.4"
 
 group :development, :test do
   gem "rspec-rails", "3.6.0"
