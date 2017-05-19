@@ -1,12 +1,13 @@
-FROM ruby:2.4.0-alpine
+FROM ruby:2.4.1-alpine
 
 ENV APPLICATION /usr/lib/origin
 ENV RAILS_ENV production
 ENV PORT 3001
+ENV BUNDLE_FORCE_RUBY_PLATFORM 1
 
 WORKDIR $APPLICATION
 
-RUN apk add --no-cache build-base tzdata
+RUN apk add --no-cache build-base tzdata protobuf
 RUN apk add --no-cache --repository http://nl.alpinelinux.org/alpine/v3.5/main postgresql-dev
 RUN gem install bundler
 
