@@ -6,8 +6,9 @@ ENV PORT 3001
 
 WORKDIR $APPLICATION
 
+RUN apk add --no-cache --repository http://nl.alpinelinux.org/alpine/v3.4/main postgresql=9.5.7-r0
+RUN apk add --no-cache --repository http://nl.alpinelinux.org/alpine/v3.4/main postgresql-dev=9.5.7-r0
 RUN apk add --no-cache build-base tzdata
-RUN apk add --no-cache --repository http://nl.alpinelinux.org/alpine/v3.5/main postgresql-dev
 RUN gem install bundler
 
 COPY Gemfile $APPLICATION/
