@@ -15,9 +15,9 @@ COPY public/ $APPLICATION/public/
 COPY config.ru $APPLICATION/config.ru
 COPY Rakefile $APPLICATION/Rakefile
 
-RUN wget -q -O /heroku-buildpack-ruby-master.zip https://github.com/heroku/heroku-buildpack-ruby/archive/master.zip
-RUN unzip -q /heroku-buildpack-ruby-master.zip -d /
-RUN /heroku-buildpack-ruby-master/bin/detect $APPLICATION && /heroku-buildpack-ruby-master/bin/compile $APPLICATION/ /tmp
+RUN wget -q -O /tmp/heroku-buildpack-ruby-master.zip https://github.com/heroku/heroku-buildpack-ruby/archive/master.zip
+RUN unzip -q /tmp/heroku-buildpack-ruby-master.zip -d /tmp/
+RUN /tmp/heroku-buildpack-ruby-master/bin/detect $APPLICATION && /tmp/heroku-buildpack-ruby-master/bin/compile $APPLICATION/ /tmp
 
 EXPOSE $PORT
 
